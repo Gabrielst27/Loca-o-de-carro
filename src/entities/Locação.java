@@ -14,11 +14,10 @@ public class Locação {
 		
 	}
 
-	public Locação(LocalDateTime início, LocalDateTime fim, Veículo veículo, Fatura fatura) {
+	public Locação(LocalDateTime início, LocalDateTime fim, Veículo veículo) {
 		this.início = início;
 		this.fim = fim;
 		this.veículo = veículo;
-		this.fatura = fatura;
 	}
 
 	public LocalDateTime getInício() {
