@@ -30,6 +30,8 @@ public class Fatura {
 		this.taxa = taxa;
 	}
 	
-	
+	public Double getValorTotal() {
+		return getValorBase() - getTaxa();
+	}
 
 }

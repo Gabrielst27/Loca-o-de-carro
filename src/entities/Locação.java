@@ -1,78 +1,58 @@
 package entities;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Locação {
-
-	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-
-	private LocalDateTime dataInicial;
-	private LocalDateTime dataFinal;
-	private Double valorPorHora;
-	private Double valorPorDia;
-
-	private Veículo modelo;
+	
+	private LocalDateTime início;
+	private LocalDateTime fim;
+	
+	private Veículo veículo;
+	private Fatura fatura;
 
 	public Locação() {
-
+		
 	}
 
-	public Locação(Veículo modelo, LocalDateTime dataInicial, LocalDateTime dataFinal, Double valorPorHora, Double valorPorDia) {
-		this.modelo = modelo;
-		this.dataInicial = dataInicial;
-		this.dataFinal = dataFinal;
-		this.valorPorHora = valorPorHora;
-		this.valorPorDia = valorPorDia;
+	public Locação(LocalDateTime início, LocalDateTime fim, Veículo veículo, Fatura fatura) {
+		this.início = início;
+		this.fim = fim;
+		this.veículo = veículo;
+		this.fatura = fatura;
 	}
 
-	public Veículo getModelo() {
-		return modelo;
+	public LocalDateTime getInício() {
+		return início;
 	}
 
+	public void setInício(LocalDateTime início) {
+		this.início = início;
+	}
+
+	public LocalDateTime getFim() {
+		return fim;
+	}
+
+	public void setFim(LocalDateTime fim) {
+		this.fim = fim;
+	}
+
+	public Veículo getVeículo() {
+		return veículo;
+	}
+
+	public void setVeículo(Veículo veículo) {
+		this.veículo = veículo;
+	}
+
+	public Fatura getFatura() {
+		return fatura;
+	}
+
+	public void setFatura(Fatura fatura) {
+		this.fatura = fatura;
+	}
 	
 	
 	
-	@SuppressWarnings("deprecation")
-	public Double valorBase() {
-		int dias = dataFinal.getDay() - dataInicial.getDay();
-		int horas = dataFinal.getHours() - dataInicial.getHours();
-		int minutos = dataFinal.getMinutes() - dataInicial.getMinutes();
-
-		if(dias < 1 && horas <= 12 && minutos == 0) {
-			return horas * valorPorHora;
-		}
-		else if(dias < 1 && horas < 12 && minutos > 0) {
-			return (horas + 1) * valorPorHora;
-		}
-		else if(dias < 1 && horas == 12 && minutos > 0) {
-			return valorPorDia;
-		}
-		else if(dias < 1 && horas > 12) {
-			return valorPorDia;
-		}
-		else if(dias >= 1 && horas == 0 && minutos == 0) {
-			return dias * valorPorDia;
-		}
-		else if(dias >= 1 && horas == 0 && minutos > 0) {
-			return (dias + 1) * valorPorDia;
-		}
-		else {
-			return (dias + 1) * valorPorDia;
-		}
-	}
-
-	public Double taxa() {
-		if (valorBase() <= 100.0) {
-			return valorBase() * 0.2;
-		} else {
-			return valorBase() * 0.15;
-		}
-	}
-
-	public Double valorTotal() {
-		return taxa() + valorBase();
-	}
-
 }
