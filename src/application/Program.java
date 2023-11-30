@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import entities.Locação;
 import entities.Veículo;
+import services.TaxaBrasil;
 
 public class Program {
 	
@@ -28,7 +29,9 @@ public class Program {
 		
 		Locação locação = new Locação(início, fim, new Veículo(modelo));
 		
+		TaxaBrasil taxa = new TaxaBrasil();
 		
+		System.out.print(taxa.taxa(390.0));
 		
 		sc.close();
 		
