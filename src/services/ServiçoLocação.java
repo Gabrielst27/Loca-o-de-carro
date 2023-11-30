@@ -10,9 +10,9 @@ public class ServiçoLocação {
 	private Double valorPorHora;
 	private Double valorPorDia;
 	
-	private TaxaBrasil taxa;
+	private TaxaServiço taxa;
 
-	public ServiçoLocação(Double valorPorHora, Double valorPorDia, TaxaBrasil taxa) {
+	public ServiçoLocação(Double valorPorHora, Double valorPorDia, TaxaServiço taxa) {
 		this.valorPorHora = valorPorHora;
 		this.valorPorDia = valorPorDia;
 		this.taxa = taxa;

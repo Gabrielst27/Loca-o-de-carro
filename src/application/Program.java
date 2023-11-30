@@ -30,9 +30,9 @@ public class Program {
 		
 		Locação locação = new Locação(início, fim, new Veículo(modelo));
 		
-		System.out.println("Preço por hora: ");
+		System.out.print("Preço por hora: ");
 		double preçoPorHora = sc.nextDouble();
-		System.out.println("Preço por dia: ");
+		System.out.print("Preço por dia: ");
 		double preçoPorDia = sc.nextDouble();
 		
 		ServiçoLocação loc = new ServiçoLocação(preçoPorHora, preçoPorDia, new TaxaBrasil());
@@ -40,9 +40,9 @@ public class Program {
 		loc.gerarFatura(locação);
 		
 		System.out.println("FATURA:");
-		System.out.println("Pagamento base: " + locação.getFatura().getValorBase());
-		System.out.println("Imposto: " + locação.getFatura().getTaxa());
-		System.out.println("Total: " + locação.getFatura().getValorTotal());
+		System.out.println("Pagamento base: R$ " + String.format("%.2f", locação.getFatura().getValorBase()));
+		System.out.println("Imposto: R$ " + String.format("%.2f", locação.getFatura().getTaxa()));
+		System.out.println("Total: R$ " + String.format("%.2f", locação.getFatura().getValorTotal()));
 		
 		sc.close();
 		
