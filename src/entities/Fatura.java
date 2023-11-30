@@ -31,7 +31,7 @@ public class Fatura {
 	}
 	
 	public Double getValorTotal() {
-		return getValorBase() - getTaxa();
+		return getValorBase() + getTaxa();
 	}
 
 }

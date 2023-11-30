@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import entities.Locação;
 import entities.Veículo;
+import services.ServiçoLocação;
 import services.TaxaBrasil;
 
 public class Program {
@@ -29,9 +30,19 @@ public class Program {
 		
 		Locação locação = new Locação(início, fim, new Veículo(modelo));
 		
-		TaxaBrasil taxa = new TaxaBrasil();
+		System.out.println("Preço por hora: ");
+		double preçoPorHora = sc.nextDouble();
+		System.out.println("Preço por dia: ");
+		double preçoPorDia = sc.nextDouble();
 		
-		System.out.print(taxa.taxa(390.0));
+		ServiçoLocação loc = new ServiçoLocação(preçoPorHora, preçoPorDia, new TaxaBrasil());
+		
+		loc.gerarFatura(locação);
+		
+		System.out.println("FATURA:");
+		System.out.println("Pagamento base: " + locação.getFatura().getValorBase());
+		System.out.println("Imposto: " + locação.getFatura().getTaxa());
+		System.out.println("Total: " + locação.getFatura().getValorTotal());
 		
 		sc.close();
 		
