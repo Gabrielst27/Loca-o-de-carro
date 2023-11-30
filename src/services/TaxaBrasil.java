@@ -1,6 +1,6 @@
 package services;
 
-public class TaxaBrasil {
+public class TaxaBrasil implements TaxaServiço {
 	
 	public double taxa(double quantia) {
 		if(quantia <= 100) {
