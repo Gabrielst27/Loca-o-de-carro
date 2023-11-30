@@ -1,23 +1,25 @@
 package entities;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Locação {
 
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
-	private String modelo;
-	private Date dataInicial;
-	private Date dataFinal;
+	private LocalDateTime dataInicial;
+	private LocalDateTime dataFinal;
 	private Double valorPorHora;
 	private Double valorPorDia;
+
+	private Veículo modelo;
 
 	public Locação() {
 
 	}
 
-	public Locação(String modelo, Date dataInicial, Date dataFinal, Double valorPorHora, Double valorPorDia) {
+	public Locação(Veículo modelo, LocalDateTime dataInicial, LocalDateTime dataFinal, Double valorPorHora, Double valorPorDia) {
 		this.modelo = modelo;
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
@@ -25,46 +27,13 @@ public class Locação {
 		this.valorPorDia = valorPorDia;
 	}
 
-	public String getModelo() {
+	public Veículo getModelo() {
 		return modelo;
 	}
 
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
-	}
-
-	public Date getDataInicial() {
-		return dataInicial;
-	}
-
-	public void setDataInicial(Date dataInicial) {
-		this.dataInicial = dataInicial;
-	}
-
-	public Date getDataFinal() {
-		return dataFinal;
-	}
-
-	public void setDataFinal(Date dataFinal) {
-		this.dataFinal = dataFinal;
-	}
-
-	public Double getValorPorHora() {
-		return valorPorHora;
-	}
-
-	public void setValorPorHora(Double valorPorHora) {
-		this.valorPorHora = valorPorHora;
-	}
-
-	public Double getValorPorDia() {
-		return valorPorDia;
-	}
-
-	public void setValorPorDia(Double valorPorDia) {
-		this.valorPorDia = valorPorDia;
-	}
-
+	
+	
+	
 	@SuppressWarnings("deprecation")
 	public Double valorBase() {
 		int dias = dataFinal.getDay() - dataInicial.getDay();
